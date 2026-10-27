@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test js</title>
+</head>
+<body>
+    <h2>player 1</h2>
+    <input type="text" placeholder="player 1 name" id="player1name">
+    
+    <h2>player 2</h2>
+    <input type="text" placeholder="player 2 name" id="player2name">
+    <button id="btn" onclick="savename()">enter</button>
+
+    <h2>enter the number of your monster</h2>
+    <pre>
+lion:                                                                                
+1- 3 attack                                              
+2- 3 healing - 2 round                         
+3- 2 healing from other - 3 round             
+
+wolf:
+1- 3 attack
+2- 7 attack - 2 round
+3- 3 defense - 2 round
+
+frog: 
+1- 4 attack
+2- 3 defense - 2 round
+3- 3 healing - 3 round
+
+turtle:
+1- 4 attack
+2- 3 defense - 2 round
+3- 3 healing - 3 round
+    </pre>
+    <table border="0">
+        <tr>
+            <td><p>player 1</p></td>
+            <td>
+                <select id="monster1">
+                    <option value='1'> 1:lion</option>
+                    <option value='2'> 2:wolf</option>
+                    <option value='3'> 3:frog</option>
+                </select>
+            </td>
+            <td><p>player 2</p></td>
+            <td>
+                <select id="monster2">
+                    <option value='1'> 1:lion</option>
+                    <option value='2'> 2:wolf</option>
+                    <option value='3'> 3:frog</option>
+                </select>
+            </td>
+        </tr>
+    </table>
+    <button id="btnmonster" onclick="player_choosing_monster()">finish</button>
+
+
+
+<br>
+<br>
+    <input type="radio" name="move1" class="move1" value=1 id="mv1" checked>
+    <label for="mv1">1</label>
+    <input type="radio" name="move1" class="move1" value=2 id="mv2">
+    <label for="mv2">2</label>
+    <input type="radio" name="move1" class="move1" value=3 id="mv3">
+    <label for="mv3">3</label>
+    <button id="mvt1" onclick="mouvement1()">move</button>
+<br>
+<br>
+    <input type="radio" name="move2" class="move2" value=1 id="mv12" checked>
+    <label for="mv12">1</label>
+    <input type="radio" name="move2" class="move2" value=2 id="mv22">
+    <label for="mv22">2</label>
+    <input type="radio" name="move2" class="move2" value=3 id="mv32">
+    <label for="mv32">3</label>
+    <button id="mvt2" onclick="mouvement2()" disabled >move</button>
+
+
+
+    <script src="index.js"></script>
+</body>
+</html>
