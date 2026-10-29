@@ -125,19 +125,31 @@ function healingfromother(arro,arri,h){
 
     }
 }
-function protection(protection){
-    protection=1;
-    return protection;
+function protection(protection,index,h){
+    if(index>=h){
+        protection=1;
+        index1++;
+        return protection;
+    }
+    else{
+        console.log("not enough rounds try another move\n");
+        return protection;
+
+    }
 }
-function timereverse(arro,temp){
+function timereverse(arro,temp,h){
     let [name,a,b,d]=arro;
-    a=temp[0];
-    b=temp[1];
-    console.log(a);
-    console.log(b);
-    
-    index1++;
-    return [name,a,b,d];
+    if(d>=h){
+        a=temp[0];
+        b=temp[1];
+        index1++;
+        return [name,a,b,d];
+    }
+    else{
+        console.log("not enough rounds try another move\n");
+        return [name,a,b,d];
+
+    }
 }
 
 
@@ -311,15 +323,24 @@ const mouvement1 = ()=>{
         }
         case '4':{
                         
-            if(a1=='1') user1 = timereverse(user1,temp1);
-            if(a1=='2') [user2,user1] = healing(user2,user1,2);
-            if(a1=='3') [user2,user1] = healingfromother(user2,user1,3);
+            if(a1=='1') [user2,user1] = firstattack(user2,user1,3);
+            if(a1=='2') index31 = protection(index31,index21,2);
+            if(a1=='3') user1 = timereverse(user1,temp1,3);
             break;      
             
         }
         
     }
-    
+
+    if(index32>=1)
+    {
+        if(temp2[0]>user2[1]||temp2[1]>user2[2]){
+            user2[1]=temp2[0];
+            user2[2]=temp2[1];
+            index32=0;
+        }
+    }
+
     if(index1== 1){
         user1[3]++;
         statuss();
@@ -364,14 +385,21 @@ const mouvement2 = ()=>{
         }
         case '4':{
                         
-            if(a2=='1') user2 = timereverse(user2,temp2);
-            if(a2=='2') [user1,user2] = healing(user1,user2,2);
-            if(a2=='3') [user1,user2] = healingfromother(user1,user2,3);
+            if(a2=='1') [user1,user2] = firstattack(user1,user2,3);
+            if(a2=='2') index32 = protection(index32,index22,2);
+            if(a2=='3') user2 = timereverse(user2,temp2,3);
             break;
         }
         
     }
-    
+    if(index31>=1)
+    {
+        if(temp1[0]>user1[1]||temp1[1]>user1[2]){
+            user1[1]=temp1[0];
+            user1[2]=temp1[1];
+            index31=0;
+        }
+    }
     if(index1== 1){
         user2[3]++;
         statuss(); 
